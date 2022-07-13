@@ -1,0 +1,35 @@
+<div class="container" id="container">
+  <app-search placeholder="Search by name" (setValue)="filterList($event)"></app-search>
+  <div class="actions-block">
+    <p>
+      Найдено: {{ totalUsersAmount }}
+    </p>
+  </div>
+  <div class="table-responsive">
+    <div class="table">
+      <div class="table-head">
+        <div class="table-row table-row-title">
+          <div class="item-cell">Номер</div>
+          <div class="item-cell">Имя</div>
+          <div class="item-cell">Год рождения</div>
+          <div class="item-cell">Вес</div>
+          <div class="item-cell">Рост</div>
+        </div>
+      </div>
+      <div *ngIf="users" class="table-body">
+        <div class="table-row" *ngFor="let user of users; let i = index">
+          <div class="item-cell">{{ ((page-1)*10) + i + 1 }}</div>
+          <div class="item-cell">{{ user.name }}</div>
+          <div class="item-cell">{{ user.birth_year }}</div>
+          <div class="item-cell">{{ user.mass }}</div>
+          <div class="item-cell">{{ user.height }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="!totalUsersAmount" align="center">Ничего не найдено</div>
+  <app-pagination *ngIf="totalUsersAmount > 10" [setPagination]="{'itemsCount': totalUsersAmount, 'pageSize': 10}" (goToPage)="goToPage($event)"></app-pagination>
+</div>
+<div *ngIf="isLoaded" class="load-indicator">
+  ИДЕТ ЗАГРУЗКА ДАННЫХ....
+</div>

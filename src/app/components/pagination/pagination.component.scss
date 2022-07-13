@@ -1,0 +1,45 @@
+.pagination{
+    display: inline-block;
+    button{
+        cursor: pointer;
+        &:hover{
+            background-color: #d9d3f1;
+        }
+    }
+}
+
+.previous-page{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: 0;
+}
+
+.next-page{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.previous-page, .next-page{
+    border: 1px solid #8371c5;
+    padding: 5px 10px;
+
+    &:disabled, &:disabled:hover{
+        cursor: not-allowed!important;
+        background: #ccc!important;
+        color: #999!important;
+    }
+}
+
+.page-number{
+    padding: 5px 10px;
+    border: 1px solid #8371c5;
+    border-right: 0;
+
+    &:last-child{
+        border-right: 1px solid #8371c5;
+    }
+
+    &.current-page{
+        background-color: #d9d3f1;
+    }
+}
