@@ -18,7 +18,7 @@
       </div>
       <div *ngIf="users" class="table-body">
         <div class="table-row" *ngFor="let user of users; let i = index">
-          <div class="item-cell">{{ ((page-1)*10) + i + 1 }}</div>
+          <div class="item-cell">{{ ((page-1)*itemsPerPage) + i + 1 }}</div>
           <div class="item-cell">{{ user.name }}</div>
           <div class="item-cell">{{ user.birth_year }}</div>
           <div class="item-cell">{{ user.mass }}</div>
@@ -28,7 +28,9 @@
     </div>
   </div>
   <div *ngIf="!totalUsersAmount" align="center">Ничего не найдено</div>
-  <app-pagination *ngIf="totalUsersAmount > 10" [setPagination]="{'itemsCount': totalUsersAmount, 'pageSize': 10}" (goToPage)="goToPage($event)"></app-pagination>
+  <app-pagination *ngIf="totalUsersAmount > itemsPerPage"
+    [setPagination]="{'itemsCount': totalUsersAmount, 'pageSize': itemsPerPage}" (goToPage)="goToPage($event)">
+  </app-pagination>
 </div>
 <div *ngIf="isLoaded" class="load-indicator">
   ИДЕТ ЗАГРУЗКА ДАННЫХ....
