@@ -1,6 +1,10 @@
-# SearchApp
+# SearchAppPagination
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+
+## DEMO
+
+You can watch DEMO here https://www.loom.com/share/25856297f74747f4a62c949e94d22f01
 
 ## Development server
 
